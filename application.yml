@@ -1,0 +1,14 @@
+string:
+  profiles:
+    active:
+      - dev
+---
+string:
+  profiles: dev ##开发环境 
+  application: microservicecloud-dev
+---
+string:
+  profiles: test  #测试环境
+  application: microservicelou-test
+
+
