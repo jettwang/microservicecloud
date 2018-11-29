@@ -1,6 +1,8 @@
 package com.jett.springcloud.controller;
 
 import com.jett.springcloud.entities.Dept;
+import com.jett.springcloud.entities.DeptClientService;
+import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,20 +13,28 @@ import java.util.List;
 
 @RestController
 public class DeptController_Consumer {
-    private static final  String REST_URL_PREFIX="http://localhost:8001";
+//    private static final  String REST_URL_PREFIX="http://localhost:8001";
+    private static final  String REST_URL_PREFIX="http://MICROSERVICECLOUD-PROVIDER";
+
+    @Autowired
+    private DeptClientService deptClientService;
+
     /*ConfigBean类中向IOC容器中注册一个RestTemplate*/
     @Autowired
     private RestTemplate restTemplate;
     @RequestMapping(value = "/consumer/dept/add")
     public boolean add(Dept dept){
-        return restTemplate.postForObject(REST_URL_PREFIX+"/dept/add",dept,Boolean.class);
+//        return restTemplate.postForObject(REST_URL_PREFIX+"/dept/add",dept,Boolean.class);
+        return deptClientService.add(dept);
     }
     @RequestMapping(value = "/consumer/dept/get/{id}")
     public  Dept get(@PathVariable("id")Long  id){
-        return restTemplate.getForObject(REST_URL_PREFIX+"/dept/get/"+id, Dept.class);
+//        return restTemplate.getForObject(REST_URL_PREFIX+"/dept/get/"+id, Dept.class);
+        return deptClientService.get(id);
     }
     @RequestMapping(value = "/consumer/dept/list")
     public List<Dept> list(){
-        return  restTemplate.getForObject(REST_URL_PREFIX+"/dept/list",List.class);
+//        return  restTemplate.getForObject(REST_URL_PREFIX+"/dept/list",List.class);
+        return  deptClientService.list();
     }
 }

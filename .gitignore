@@ -3,5 +3,4 @@
 microservicecloud-api/src/main/resources/
 microservicecloud-api/src/test/
 microservicecloud-api/target/
-microservicecloud-provider-dept-8001/src/test/
-microservicecloud-provider-dept-8001/target/
+/microservicecloud-provider-dept-8001/

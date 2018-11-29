@@ -8,14 +8,17 @@
         <outputRelativeToContentRoot value="true" />
         <module name="microservicecloud-api" />
         <module name="microservicecloudconsumerdept80" />
-        <module name="microservicecloudproviderdept8001" />
+        <module name="microservicecloudeureka7001" />
+        <module name="microservicecloudproviderdept8002" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="microservicecloud" target="1.8" />
       <module name="microservicecloud-api" target="1.8" />
+      <module name="microservicecloud-provider-dept-8002" target="1.8" />
       <module name="microservicecloudconsumerdept80" target="1.8" />
-      <module name="microservicecloudproviderdept8001" target="1.8" />
+      <module name="microservicecloudeureka7001" target="1.8" />
+      <module name="microservicecloudproviderdept8002" target="1.8" />
       <module name="Sink" target="1.8" />
     </bytecodeTargetLevel>
   </component>
